@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Product } from "./models/Product";
+import {Component} from '@angular/core';
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
+import {CartItem} from "./models/CartItem";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +11,14 @@ import { Product } from "./models/Product";
 export class AppComponent {
   budget = 0;
 
-  products: Product[] = [
-    {name: 'Brot', price: 1.2},
-    {name: 'Milch', price: 0.9},
-    {name: 'Zucker', price: 1.5}
-  ];
+  constructor(public productService: ProductService, public cartService: CartService) {
+  }
 
-  shoppingList: CartItem[] = [];
+  deleteFromCart(cartItem: CartItem): void {
+    this.cartService.deleteFromCart(cartItem);
+  }
+
+  addProduct(): void {
+
+  }
 }

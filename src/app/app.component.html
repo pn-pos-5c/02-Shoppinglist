@@ -1,42 +1,59 @@
 <div>
 
-  <h3>Budget (in EUR)</h3>
-  <input [(ngModel)]="budget">
+  <div class="budget-wrapper">
+    <h3>Budget (in EUR)</h3>
+    <input [(ngModel)]="budget" class="input-group">
+  </div>
 
-  <h3>Verfügbare Produkte</h3>
+  <div class="product-wrapper">
+    <h3>Verfügbare Produkte</h3>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Preis</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{product.name}}</td>
-      <td>{{product.price}} €</td>
-    </tr>
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Preis</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of productService.products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}} €</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" (click)="addProduct()">Produkt hinzufügen</button>
+  </div>
 
 
-  <h3>Einkaufsliste</h3>
+  <div class="cart-wrapper">
+    <h3>Einkaufsliste</h3>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Menge</th>
-      <th>Gesamtpreis</th>
-      <th>Aktion</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{product.name}}</td>
-      <td>{{product.price}} €</td>
-    </tr>
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Menge</th>
+        <th>Gesamtpreis</th>
+        <th>Aktion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cartItem of cartService.cartItems">
+        <td>{{cartItem.name}}</td>
+        <td>{{cartItem.amount}}</td>
+        <td>{{cartItem.price}} €</td>
+        <td><i class="bi bi-trash" (click)="deleteFromCart(cartItem)"></i></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="sum-wrapper">
+      <b>Gesamtpreis: <span
+        [ngStyle]="{'color': budget >= cartService.total() ? 'green' : 'red'}">{{cartService.total()}} €</span></b>
+    </div>
+  </div>
 </div>
+
+<app-add-cart-item></app-add-cart-item>

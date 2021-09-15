@@ -1,0 +1,9 @@
+<div>
+  <select class="product-select" [(ngModel)]="selectedId">
+    <option *ngFor="let product of productService.products" value="{{product.id}}">{{product.name}}</option>
+  </select>
+
+  <input class="input-amount" type="number" [(ngModel)]="amount">
+
+  <button class="btn btn-success" [disabled]="amount < 1" (click)="addToCart()">Hinzufügen</button>
+</div>

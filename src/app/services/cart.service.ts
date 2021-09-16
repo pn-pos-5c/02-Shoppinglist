@@ -6,10 +6,10 @@ import {CartItem} from "../models/CartItem";
 })
 export class CartService {
 
+  cartItems: CartItem[] = [];
+
   constructor() {
   }
-
-  cartItems: CartItem[] = [];
 
   addToCart(cartItem: CartItem): void {
     this.cartItems.push(cartItem);

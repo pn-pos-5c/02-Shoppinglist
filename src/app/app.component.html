@@ -24,7 +24,7 @@
         <td>{{cartItem.name}}</td>
         <td>{{cartItem.amount}}</td>
         <td>{{cartItem.price}} €</td>
-        <td><i class="bi bi-trash" (click)="deleteFromCart(cartItem)"></i></td>
+        <td><i (click)="deleteFromCart(cartItem)" class="bi bi-trash"></i></td>
       </tr>
       </tbody>
     </table>

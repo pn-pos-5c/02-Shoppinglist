@@ -16,9 +16,9 @@
     </tbody>
   </table>
 
-  <button *ngIf="!showAddProductDialog" id="btnAddProduct" class="btn btn-primary"
-          (click)="addProduct()">Produkt hinzufügen
+  <button (click)="addProduct()" *ngIf="!showAddProductDialog" class="btn btn-primary"
+          id="btnAddProduct">Produkt hinzufügen
   </button>
 
-  <app-add-product *ngIf="showAddProductDialog" (showAddProductDialog)="cancel()"></app-add-product>
+  <app-add-product (showAddProductDialog)="cancel()" *ngIf="showAddProductDialog"></app-add-product>
 </div>

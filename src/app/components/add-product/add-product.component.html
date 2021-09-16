@@ -1,13 +1,13 @@
 <div>
   <div class="input-wrapper">
-    <input class="input input-name" type="text" [(ngModel)]="name">
-    <input class="input" type="text" [(ngModel)]="price">
+    <input [(ngModel)]="name" class="input input-name" type="text">
+    <input [(ngModel)]="price" class="input" type="text">
   </div>
 
   <div>
-    <button class="btn btn-success btnAdd" [disabled]="price <= 0 || name === ''" (click)="addProduct()">Produkt
+    <button (click)="addProduct()" [disabled]="price <= 0 || name === ''" class="btn btn-success btnAdd">Produkt
       hinzufügen
     </button>
-    <button class="btn btn-danger" (click)="cancel()">Abbrechen</button>
+    <button (click)="cancel()" class="btn btn-danger">Abbrechen</button>
   </div>
 </div>

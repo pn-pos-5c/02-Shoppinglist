@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../services/product.service";
-import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-products',
@@ -10,7 +9,7 @@ import {CartService} from "../../services/cart.service";
 export class ProductsComponent implements OnInit {
   showAddProductDialog = false;
 
-  constructor(public productService: ProductService, public cartService: CartService) {
+  constructor(public productService: ProductService) {
   }
 
   ngOnInit(): void {

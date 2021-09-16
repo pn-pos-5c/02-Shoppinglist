@@ -1,37 +1,13 @@
 <div>
 
-  <div class="budget-wrapper">
+  <div class="wrapper">
     <h3>Budget (in EUR)</h3>
     <input [(ngModel)]="budget" class="input-group">
   </div>
 
-  <div class="product-wrapper">
-    <h3>Verfügbare Produkte</h3>
+  <app-products></app-products>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Preis</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let product of productService.products">
-        <td>{{product.name}}</td>
-        <td>{{product.price}} €</td>
-      </tr>
-      </tbody>
-    </table>
-
-    <button *ngIf="!showAddProductDialog" id="btnAddProduct" class="btn btn-primary"
-            (click)="addProduct()">Produkt hinzufügen
-    </button>
-
-    <app-add-product *ngIf="showAddProductDialog" (showAddProductDialog)="cancel()"></app-add-product>
-  </div>
-
-
-  <div class="cart-wrapper">
+  <div>
     <h3>Einkaufsliste</h3>
 
     <table class="table">

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ProductService} from "./services/product.service";
 import {CartService} from "./services/cart.service";
 import {CartItem} from "./models/CartItem";
 
@@ -10,21 +9,11 @@ import {CartItem} from "./models/CartItem";
 })
 export class AppComponent {
   budget = 0;
-  showAddProductDialog = false;
 
-  constructor(public productService: ProductService, public cartService: CartService) {
+  constructor(public cartService: CartService) {
   }
 
   deleteFromCart(cartItem: CartItem): void {
     this.cartService.deleteFromCart(cartItem);
-  }
-
-  addProduct(): void {
-    const button = document.getElementById('btnAddProduct');
-    if (button) this.showAddProductDialog = true;
-  }
-
-  cancel() {
-    this.showAddProductDialog = false;
   }
 }

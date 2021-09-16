@@ -1,1 +1,13 @@
-<p>add-product works!</p>
+<div>
+  <div class="input-wrapper">
+    <input class="input input-name" type="text" [(ngModel)]="name">
+    <input class="input" type="text" [(ngModel)]="price">
+  </div>
+
+  <div>
+    <button class="btn btn-success btnAdd" [disabled]="price <= 0 || name === ''" (click)="addProduct()">Produkt
+      hinzufügen
+    </button>
+    <button class="btn btn-danger" (click)="cancel()">Abbrechen</button>
+  </div>
+</div>

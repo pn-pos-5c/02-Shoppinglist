@@ -23,7 +23,11 @@
       </tbody>
     </table>
 
-    <button class="btn btn-primary" (click)="addProduct()">Produkt hinzufügen</button>
+    <button *ngIf="!showAddProductDialog" id="btnAddProduct" class="btn btn-primary"
+            (click)="addProduct()">Produkt hinzufügen
+    </button>
+
+    <app-add-product *ngIf="showAddProductDialog" (showAddProductDialog)="cancel()"></app-add-product>
   </div>
 
 

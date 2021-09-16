@@ -10,6 +10,7 @@ import {CartItem} from "./models/CartItem";
 })
 export class AppComponent {
   budget = 0;
+  showAddProductDialog = false;
 
   constructor(public productService: ProductService, public cartService: CartService) {
   }
@@ -19,6 +20,11 @@ export class AppComponent {
   }
 
   addProduct(): void {
+    const button = document.getElementById('btnAddProduct');
+    if (button) this.showAddProductDialog = true;
+  }
 
+  cancel() {
+    this.showAddProductDialog = false;
   }
 }

@@ -19,4 +19,8 @@ export class ProductService {
     this.products.push(product);
   }
 
+  getNextId(): number {
+    return this.products.reduce((a, b) => a.id > b.id ? a : b).id + 1;
+  }
+
 }
